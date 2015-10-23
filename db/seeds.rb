@@ -17,13 +17,10 @@ posts = Post.all
   )
 end
 
-Post.find_or_create_by(title: 'This is a unique title') do |post|
-  post.body = 'This is a unique body'
-end
+@post = Post.find_or_create_by(title: "This is a unique title", body: "This is a unique body")
 
-Comment.find_or_create_by(title: 'This is a unique post') do |comment|
-  comment.body = 'This is a unique comment body'
-end
+
+@comment = Comment.find_or_create_by(post: @post, body: "This is a unique comment body")
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
