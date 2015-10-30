@@ -3,8 +3,7 @@ include RandomData
 
 RSpec.describe AdvertisementsController, type: :controller do
 
-  let (:my_advertisement) do { Advertisement.create!(title: RandomData.random_sentence, copy: RandomData.random_paragraph, price: 50) }
-  end
+  let (:my_advertisement) { Advertisement.create!(title: RandomData.random_sentence, copy: RandomData.random_paragraph, price: 50) }
 
   describe "GET index" do
     it "returns http success" do
