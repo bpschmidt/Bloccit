@@ -19,8 +19,8 @@ end
 
 10.times do
   Question.create!(
-  title: RandomData.random_sentence
-  body: RandomData.random_paragraph
+  title: RandomData.random_sentence,
+  body: RandomData.random_paragraph,
   resolved: RandomData.random_boolean
   )
 end
