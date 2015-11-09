@@ -8,7 +8,7 @@ include RandomData
 end
 topics = Topic.all
 
-10.times do
+100.times do
   SponsoredPost.create!(
   topic: topics.sample,
   title: RandomData.random_sentence,
