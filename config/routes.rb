@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :posts, except: [:index]
-    resources :sponosored_posts, except: [:index]
+    resources :sponsored_posts, except: [:index]
   end
 
 
