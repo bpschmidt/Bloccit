@@ -43,4 +43,18 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email_format).to_not be_valid
     end
   end
+
+  describe "name capitalization hook" do
+    it "sets the name 'brenda schmidt' to 'Brenda Schmidt'" do
+      user = User.new( name: "brenda schmidt", email: "user@bloccit.com", password: "password")
+      user.save!
+      expect(user.name).to eq "Brenda Schmidt"
+    end
+
+    it "doesn't change the name 'Brenda Schmidt'" do
+      user = User.new( name: "Brenda Schmidt", email: "user@bloccit.com", password: "password")
+      user.save!
+      expect(user.name).to eq "Brenda Schmidt"
+    end
+  end
 end
