@@ -16,9 +16,16 @@
 
     <div class="pull-right user-info">
       <% if current_user %>
-        <%= image_tag avatar_url(current_user) %>
-        <div class="pull-right">
-          <%= current_user.name %> <br> <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+        <div class="dropdown">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag avatar_url(current_user), class: "avatar-url" %>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#"><%= current_user.name %></a></li>
+            <li><%= link_to "Sign Out", session_path(current_user), method: :delete %></li>
+          </ul>
+        </div>
         <% else %>
           <%= link_to "Sign In", new_session_path %> or
           <%= link_to "Sign Up", new_user_path %>
