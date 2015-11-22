@@ -73,5 +73,15 @@ RSpec.describe Post, type: :model do
         expect(post.rank).to eq (old_rank - 1)
       end
     end
+
+    describe "#create_vote" do
+      it "creates an up_vote when a new post is created" do
+        expect( post.up_votes ).to eq(1)
+
+      it "increases the up_votes by 1 when a post is created" do
+        old_rank = post.rank
+        post.votes.create!(value: 1)
+        expect(post.rank).to eq (old_rank + 1)
+    end
   end
 end
