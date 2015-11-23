@@ -76,12 +76,15 @@ RSpec.describe Post, type: :model do
 
     describe "#create_vote" do
       it "creates an up_vote when a new post is created" do
-        expect( post.up_votes ).to eq(1)
+        new_post = topic.posts.new(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+        expect { new_post.save }.to change { new_post.up_votes }.by(1)
+      end
 
-      it "increases the up_votes by 1 when a post is created" do
-        old_rank = post.rank
-        post.votes.create!(value: 1)
-        expect(post.rank).to eq (old_rank + 1)
+      it "doesn't create an up_vote when updating a post" do
+        expect(post.up_votes).to eq(1)
+        post.update_attributes(title: RandomData.random_sentence, body: RandomData.random_paragraph)
+        expect(post.up_votes).to eq(1)
+      end
     end
   end
 end
