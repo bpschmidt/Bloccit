@@ -11,8 +11,4 @@ class Vote < ActiveRecord::Base
   def update_post
     post.update_rank
   end
-
-  def create_vote
-    user.votes.create(1)
-  end
 end
