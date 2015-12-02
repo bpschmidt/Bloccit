@@ -82,7 +82,7 @@ RSpec.describe Post, type: :model do
 
       it "doesn't create an up_vote when updating a post" do
         post.update_attributes(title: RandomData.random_sentence, body: RandomData.random_paragraph)
-        expect { new_post.save }.to change { new_post.up_votes }.by(0)
+        expect { post.save }.to change { post.up_votes }.by(0)
       end
     end
   end
