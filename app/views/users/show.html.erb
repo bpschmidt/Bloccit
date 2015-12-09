@@ -20,7 +20,23 @@
 </div>
 
 <h2>Posts</h2>
-<%= render @user.posts %>
+<%= posts_list(@user) %>
 
 <h2>Comments</h2>
 <%= render @user.comments %>
+
+
+1. add a list of posts that the current user has favorited. (X)
+
+<br/>
+2.  Next to each favorited post, display the author's Gravatar,
+<br/>
+
+the number of votes, and the number of comments. Implement this feature using TDD.
+<h2>Favorites</h2>
+<% @user.favorites.each do |favorite| %>
+  <%= favorite.post.title %>
+  <%= image_tag favorite.post.user.avatar_url(64), class: 'media-object' %>
+  <%= favorite.post.points %>
+  <%= favorite.post.comments.count %>
+<% end %>
