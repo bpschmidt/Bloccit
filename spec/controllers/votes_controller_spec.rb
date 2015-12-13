@@ -35,14 +35,14 @@ RSpec.describe VotesController, type: :controller do
       it "the users first vote increases number of post votes by one" do
         votes = user_post.votes.count
         post :up_vote, format: :js, post_id: user_post.id
-        expect(user_post.votes.count, format: :js).to eq(votes + 1)
+        expect(user_post.votes.count).to eq(votes + 1)
       end
 
       it "the users second vote does not increase the number of votes" do
         post :up_vote, format: :js, post_id: user_post.id
         votes = user_post.votes.count
         post :up_vote, format: :js, post_id: user_post.id
-        expect(user_post.votes.count, format: :js).to eq(votes)
+        expect(user_post.votes.count).to eq(votes)
       end
 
       it "increases the sum of post votes by one" do
