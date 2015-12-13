@@ -7,7 +7,8 @@ class Api::V1::UsersController < Api::V1::BaseController
     render json: user.to_json, status: 200
   end
 
-  def index users = User.all
+  def index
+    users = User.all
     render json: users.to_json, status: 200
   end
 end
