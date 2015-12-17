@@ -1,5 +1,3 @@
-
-
 class VotesController < ApplicationController
   before_action :require_sign_in
 
@@ -9,14 +7,16 @@ class VotesController < ApplicationController
     respond_to do |format|
       format.html
       format.js
+    end
   end
 
   def down_vote
     update_vote(-1)
-
+    # @post
     respond_to do |format|
       format.html
-      format.js
+      format.js { render js: "$('strong').html('#{@post.points}')" }
+    end
   end
 
   private

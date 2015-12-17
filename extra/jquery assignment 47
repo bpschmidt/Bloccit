@@ -1,0 +1,14 @@
+2 parts to jQuery
+
+1.  The Selection
+$("some selection code")
+2.  Manipulation
+.html("woohoo")
+
+$("h1").html("Desperate Measures")
+
+
+#goal is to have our down_vote method find the appropriate vote counter, and decrement it by 1
+
+1.  A unique ID on the vote counter HTML element
+2.  A selector that selects that unique ID
