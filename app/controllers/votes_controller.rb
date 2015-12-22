@@ -15,7 +15,7 @@ class VotesController < ApplicationController
     # @post
     respond_to do |format|
       format.html
-      format.js { render js: "$('strong').html('#{@post.points}')" }
+      format.js { render js: "$('##{@post.id}').html('#{@post.points}')" }
     end
   end
 
